@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAPPY Birthday Anisha <!-- chanage your name here -->  </title> 
+  
+  
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-image: url('images.jpeg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            color: #000000; /* Set text color to black */
+            overflow: hidden; /* Prevent scroll bars */
+            position: relative;
+        }
+
+        header {
+            background-color: rgba(242, 242, 242, 0.8);
+            padding: 20px;
+            text-align: center;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        #photoContainer {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            overflow-x: auto;
+            max-height: 70vh; /* Set max height for the scrollable section */
+        }
+
+        .uploadedPhoto {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        #scrollDown {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #scrollIcon {
+            font-size: 100px;
+            cursor: pointer;
+        }
+
+        #startButton {
+            display: none; /* Hide the button initially */
+        }
+
+        #visitCounter {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            font-size: 16px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Happy Birthday Anisha</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>🌹💐Happy Birthday!💐🌹</h2>
+            <p>
+                May your day be filled with joy, laughter, and wonderful moments. Wishing you success, good health, and all the happiness in the world on your special day. May this new year bring you exciting adventures and beautiful memories. Celebrate the amazing person you are, and may your year ahead be as bright as your smile. Cheers to another fantastic year of life! 🎉🎂🥳
+            </p>
+            <p> Birthday date: <!-- add your birthday date here --> 11/12/2006 Age: 17 years / 204 months / 887 weeks / 6,209 days / 149,016 hours / 8,940,960 minutes 536,457,600 seconds</p>
+        </section>
+
+        <script>
+            window.onload = function () {
+                incrementVisitCount();
+                setTimeout(function () {
+                    window.scrollTo(0, 1);
+                    document.getElementById('startButton').style.display = 'block'; // Show the button after loading
+                }, 0);
+            }
+        </script>
+
+        <button id="startButton" onclick="startCelebration()">Start Celebration</button>
+
+        <audio id="backgroundAudio">
+            <source src="pla.mp3" type="audio/mpeg">
+        </audio>
+
+        <div id="visitCounter"></div>
+
+        <script>
+            const audio = document.getElementById('backgroundAudio');
+
+            function startCelebration() {
+                audio.muted = false; // Unmute when the user interacts with the page
+                audio.play();
+                document.getElementById('startButton').style.display = 'none'; // Hide the button after clicking
+                // Additional celebration logic if needed
+            }
+
+            function incrementVisitCount() {
+                let visitCount = localStorage.getItem('visitCount') || 0;
+                visitCount++;
+                localStorage.setItem('visitCount', visitCount);
+                document.getElementById('visitCounter').innerHTML = `Visits: ${visitCount}`;
+            }
+
+            // Play the wish pop sound once on entering the website
+            const popSound = new Audio('pop sound.mp3'); // Replace with your wish pop sound
+            popSound.play();
+        </script>
+
+    </main>
+
+</body>
+</html>
